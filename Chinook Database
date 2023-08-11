@@ -1,0 +1,28 @@
+Chinook represents a digital media store and it includes tables: artists, albums, media tracks, invoices, and customers.
+Here are some questions that was use to look into the database.
+
+#1. Show Customers (their full names, customer ID, and country) who are not in the US.
+
+SELECT FirstName, LastName, CustomerId, Country
+FROM chinook.customers
+WHERE country != "USA";
+
+#2. Show only the Customers from Canada
+
+SELECT * FROM chinook.customers
+WHERE country = "Canada":
+
+#3. Find the invoices of customers who are from Brazil
+
+SELECT cust.FirstName, cust.LastName, inv.InvoiceId, inv.BillingCountry, inv.InvoiceDate
+FROM chinook.invoices as inv 
+LEFT JOIN chinook.customers as cust 
+on inv.CustomerId = cust.CustomerId 
+WHERE inv.BillingCountry = "Brazil";
+
+#4. Show the Employees who are Sales agents. 
+
+SELECT * FROM chinook.Employees
+WHERE Title = "Sales Support Agent" ;
+
+
